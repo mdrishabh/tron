@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    @apply bg-[#0A0A0F] text-[#F0F0F8] font-sans;
+    font-size: 14px;
+    line-height: 1.5;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#2A2A3A] rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#3A3A4A];
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-150 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply btn bg-indigo-600 text-white hover:bg-indigo-500 active:bg-indigo-700;
+  }
+
+  .btn-secondary {
+    @apply btn bg-[#1C1C26] text-[#F0F0F8] border border-[#2A2A3A] hover:bg-[#2A2A3A];
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-500;
+  }
+
+  .btn-ghost {
+    @apply btn text-[#8888A0] hover:text-[#F0F0F8] hover:bg-[#1C1C26];
+  }
+
+  .btn-success {
+    @apply btn bg-green-600 text-white hover:bg-green-500;
+  }
+
+  .card {
+    @apply bg-[#16161E] border border-[#2A2A3A] rounded-lg;
+  }
+
+  .input {
+    @apply w-full bg-[#111118] border border-[#2A2A3A] rounded-md px-3 py-2 text-[#F0F0F8] text-sm
+    placeholder-[#555568] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
+    transition-colors duration-150;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-[#8888A0] uppercase tracking-wide mb-1;
+  }
+
+  .select {
+    @apply input appearance-none cursor-pointer;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-green {
+    @apply badge bg-green-900/40 text-green-400;
+  }
+
+  .badge-yellow {
+    @apply badge bg-yellow-900/40 text-yellow-400;
+  }
+
+  .badge-red {
+    @apply badge bg-red-900/40 text-red-400;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-900/40 text-blue-400;
+  }
+
+  .badge-gray {
+    @apply badge bg-[#2A2A3A] text-[#8888A0];
+  }
+
+  .badge-indigo {
+    @apply badge bg-indigo-900/40 text-indigo-400;
+  }
+
+  .table-row-hover {
+    @apply hover:bg-[#1C1C26] transition-colors duration-100 cursor-pointer;
+  }
+
+  .section-header {
+    @apply text-xs font-semibold uppercase tracking-widest text-[#555568] mb-2;
+  }
+
+  .instruction-banner {
+    @apply flex items-start gap-3 p-3 bg-blue-950/30 border border-blue-800/30 rounded-lg mb-4 text-sm text-[#8888A0];
+  }
+
+  .page-container {
+    @apply flex flex-col h-full overflow-hidden;
+  }
+
+  .page-header {
+    @apply flex items-center justify-between px-6 py-4 border-b border-[#2A2A3A] shrink-0;
+  }
+
+  .page-content {
+    @apply flex-1 overflow-y-auto p-6;
+  }
+
+  .stat-card {
+    @apply card p-4 flex flex-col;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold text-[#F0F0F8] mt-1;
+  }
+
+  .stat-label {
+    @apply text-xs text-[#8888A0];
+  }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  .divider {
+    @apply border-t border-[#2A2A3A] my-4;
+  }
+}
+
+/* @xyflow/react canvas styles */
+.react-flow__background {
+  background-color: #0A0A0F !important;
+}
+
+.react-flow__edge-path {
+  stroke: #6366F1 !important;
+  stroke-width: 2 !important;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #A5B4FC !important;
+}
+
+.react-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background: #6366F1 !important;
+  border: 2px solid #0A0A0F !important;
+}
+
+.react-flow__handle:hover {
+  background: #A5B4FC !important;
+}
+
+.react-flow__controls {
+  background: #16161E !important;
+  border: 1px solid #2A2A3A !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: #16161E !important;
+  border-bottom: 1px solid #2A2A3A !important;
+  fill: #8888A0 !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #1C1C26 !important;
+}
+
+.react-flow__minimap {
+  background: #111118 !important;
+  border: 1px solid #2A2A3A !important;
+  border-radius: 8px !important;
+}
+
+/* Recharts */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #2A2A3A !important;
+}
+
+.recharts-text {
+  fill: #8888A0 !important;
+  font-size: 11px !important;
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #16161E !important;
+  border: 1px solid #2A2A3A !important;
+  border-radius: 8px !important;
+  color: #F0F0F8 !important;
+}

@@ -1,0 +1,63 @@
+[
+  {
+    "id": "simple-sales",
+    "name": "Simple Sales",
+    "description": "Introduce product and schedule a demo",
+    "canvas": {
+      "nodes": [
+        {"id": "start-1", "type": "flowNode", "position": {"x": 250, "y": 50}, "data": {"type": "start", "label": "Start"}},
+        {"id": "say-1", "type": "flowNode", "position": {"x": 250, "y": 160}, "data": {"type": "say", "label": "Greeting", "text": "Namaste! Main {{company_name}} se {{agent_name}} bol rahi hoon. Kya aap hamare product ke baare mein sunna chahenge?"}},
+        {"id": "ask-1", "type": "flowNode", "position": {"x": 250, "y": 280}, "data": {"type": "ask", "label": "Interest Check", "text": "Haan ya nahi?"}},
+        {"id": "branch-1", "type": "flowNode", "position": {"x": 250, "y": 400}, "data": {"type": "branch", "label": "Interested?", "condition": "user says yes or haan"}},
+        {"id": "say-2", "type": "flowNode", "position": {"x": 80, "y": 520}, "data": {"type": "say", "label": "Pitch", "text": "Bahut badhiya! Hamare product se aap apna time aur paisa dono bachate hain. Main aapke liye ek demo schedule kar sakta hoon."}},
+        {"id": "ask-2", "type": "flowNode", "position": {"x": 80, "y": 640}, "data": {"type": "ask", "label": "Schedule Demo", "text": "Kaunsa time aapke liye convenient rahega?"}},
+        {"id": "collect-1", "type": "flowNode", "position": {"x": 80, "y": 760}, "data": {"type": "collect", "label": "Get Time"}},
+        {"id": "say-3", "type": "flowNode", "position": {"x": 80, "y": 880}, "data": {"type": "say", "label": "Confirm", "text": "Perfect! Demo schedule ho gaya hai. Aapko reminder bheja jayega."}},
+        {"id": "say-4", "type": "flowNode", "position": {"x": 420, "y": 520}, "data": {"type": "say", "label": "Not Interested", "text": "Koi baat nahi. Aapka samay dene ke liye shukriya. Phir kabhi aapki sahayata kar sakta hoon."}},
+        {"id": "hangup-1", "type": "flowNode", "position": {"x": 250, "y": 1000}, "data": {"type": "hangup", "label": "End", "text": "Dhanyawad! Aapka din shubh ho."}}
+      ],
+      "edges": [
+        {"id": "e1", "source": "start-1", "target": "say-1", "animated": true},
+        {"id": "e2", "source": "say-1", "target": "ask-1"},
+        {"id": "e3", "source": "ask-1", "target": "branch-1"},
+        {"id": "e4", "source": "branch-1", "target": "say-2", "label": "Yes"},
+        {"id": "e5", "source": "branch-1", "target": "say-4", "label": "No"},
+        {"id": "e6", "source": "say-2", "target": "ask-2"},
+        {"id": "e7", "source": "ask-2", "target": "collect-1"},
+        {"id": "e8", "source": "collect-1", "target": "say-3"},
+        {"id": "e9", "source": "say-3", "target": "hangup-1"},
+        {"id": "e10", "source": "say-4", "target": "hangup-1"}
+      ]
+    }
+  },
+  {
+    "id": "survey",
+    "name": "Customer Survey",
+    "description": "3-question NPS survey",
+    "canvas": {
+      "nodes": [
+        {"id": "start-1", "type": "flowNode", "position": {"x": 250, "y": 50}, "data": {"type": "start", "label": "Start"}},
+        {"id": "say-1", "type": "flowNode", "position": {"x": 250, "y": 160}, "data": {"type": "say", "label": "Introduction", "text": "Namaste! Hum ek chhota sa survey kar rahe hain. Kya aap 2 minute de sakte hain?"}},
+        {"id": "ask-1", "type": "flowNode", "position": {"x": 250, "y": 280}, "data": {"type": "ask", "label": "Q1: Rating", "text": "1 se 10 ke scale par, aap hamare service ko kitna rate karenge?"}},
+        {"id": "collect-1", "type": "flowNode", "position": {"x": 250, "y": 400}, "data": {"type": "collect", "label": "Collect Rating"}},
+        {"id": "ask-2", "type": "flowNode", "position": {"x": 250, "y": 520}, "data": {"type": "ask", "label": "Q2: Reason", "text": "Aapne yeh rating kyun di? Ek wajah bataiye."}},
+        {"id": "collect-2", "type": "flowNode", "position": {"x": 250, "y": 640}, "data": {"type": "collect", "label": "Collect Reason"}},
+        {"id": "ask-3", "type": "flowNode", "position": {"x": 250, "y": 760}, "data": {"type": "ask", "label": "Q3: Improve", "text": "Hum kya better kar sakte hain?"}},
+        {"id": "collect-3", "type": "flowNode", "position": {"x": 250, "y": 880}, "data": {"type": "collect", "label": "Collect Feedback"}},
+        {"id": "say-2", "type": "flowNode", "position": {"x": 250, "y": 1000}, "data": {"type": "say", "label": "Thank You", "text": "Bahut shukriya! Aapका feedback bahut important hai hamare liye."}},
+        {"id": "hangup-1", "type": "flowNode", "position": {"x": 250, "y": 1120}, "data": {"type": "hangup", "label": "End"}}
+      ],
+      "edges": [
+        {"id": "e1", "source": "start-1", "target": "say-1", "animated": true},
+        {"id": "e2", "source": "say-1", "target": "ask-1"},
+        {"id": "e3", "source": "ask-1", "target": "collect-1"},
+        {"id": "e4", "source": "collect-1", "target": "ask-2"},
+        {"id": "e5", "source": "ask-2", "target": "collect-2"},
+        {"id": "e6", "source": "collect-2", "target": "ask-3"},
+        {"id": "e7", "source": "ask-3", "target": "collect-3"},
+        {"id": "e8", "source": "collect-3", "target": "say-2"},
+        {"id": "e9", "source": "say-2", "target": "hangup-1"}
+      ]
+    }
+  }
+]
